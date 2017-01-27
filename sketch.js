@@ -1,7 +1,9 @@
 "use strict"
 const dotSize = 2;
 const maxConnectionLength = 20;
-let input = 'HELLO'
+const cellWidth = 20;
+const cellHeight = 20;
+let input = 'HELLO';
 let numOfDots = 0;
 let time = 0;
 let word;
@@ -76,12 +78,12 @@ class Word {
   }
 
   static createGrid() {
-    const cols = windowWidth / 50;
-    const rows = windowHeight / 50;
+    const cols = floor(windowWidth / cellWidth);
+    const rows = floor(windowHeight / cellHeight);
     const dots = [];
-    for (let col = 0; col < cols; col++) {
+    for (let col = 0; col <= cols; col++) {
       dots.push([]);
-      for (let row = 0; row < rows; row++) {
+      for (let row = 0; row <= rows; row++) {
         dots[col].push([]);
       }
     }
@@ -152,8 +154,10 @@ class Word {
   registerDots() {
     this.grid = Word.createGrid();
     for (let i = 0; i < this.dots.length; i++) {
-      const col = floor(windowWidth / this.dots[i].position.x);
-      const row = floor(windowHeight / this.dots[i].position.y);
+      let col = floor(this.dots[i].position.x / cellWidth);
+      let row = floor(this.dots[i].position.y / cellHeight);
+      col = col < 0 ? 0 : col > this.grid.cols ? this.grid.cols : col;
+      row = row < 0 ? 0 : row > this.grid.rows ? this.grid.rows : row;
       this.grid.dots[col][row].push(this.dots[i]);
     }
   }
