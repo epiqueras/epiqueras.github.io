@@ -3,7 +3,7 @@ const dotSize = 2;
 const maxConnectionLength = 20;
 const cellWidth = 20;
 const cellHeight = 20;
-let input = 'HELLO';
+let input = '{hello}';
 let numOfDots = 0;
 let time = 0;
 let word;
