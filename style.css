@@ -4,6 +4,40 @@ canvas {
   top: 0;
 }
 
+/* Upstream Fixes */
+@media only screen and (max-width: 960px) {
+  .notion-scroller.notion-scroller
+    > div:nth-child(2):not(.notion-page-content)
+    > div:not([data-block-id])
+    div:not(.notion-page-details-controls) {
+    background: initial !important;
+  }
+}
+
+/* Comment Avatar */
+.notion-page-view-discussion img {
+  height: auto !important;
+}
+
+/* Inline List Title */
+.notion-selectable.notion-collection_view-block
+  > div:first-child
+  > .notion-selectable.notion-collection_view-block:first-child
+  > div:first-child
+  > div:first-child {
+  flex-shrink: 1 !important;
+}
+.notion-selectable.notion-collection_view-block
+  > div:first-child
+  > .notion-selectable.notion-collection_view-block:first-child
+  > div:first-child
+  > div:first-child
+  > div:nth-child(2) {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
 /* Inline List Expand Icon */
 .notion-selectable.notion-collection_view-block
   > div:first-child
