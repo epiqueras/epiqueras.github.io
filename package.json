@@ -1,23 +1,10 @@
 {
-  "name": "webbed-numbers",
-  "version": "1.0.0",
-  "description": "Webbed Numbers Generator.",
-  "main": "sketch.js",
-  "scripts": {
-    "build": "babel sketch.js -d lib"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/epiqueras/webbed-numbers.git"
-  },
-  "author": "Enrique Piqueras",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/epiqueras/webbed-numbers/issues"
-  },
-  "homepage": "https://github.com/epiqueras/webbed-numbers#readme",
   "devDependencies": {
-    "babel-cli": "^6.16.0",
-    "babel-preset-es2015": "^6.16.0"
+    "@babel/cli": "^7.12.16",
+    "@babel/core": "^7.12.16",
+    "@babel/preset-env": "^7.12.16"
+  },
+  "scripts": {
+    "build": "babel script.js --presets=@babel/preset-env --out-dir build && cd loconotion && docker-compose build && LOCONOTION_LOCAL_DIST=.. docker-compose run loconotion dist/loconotion.toml"
   }
 }

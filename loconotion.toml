@@ -1,0 +1,27 @@
+name = "build"
+page = "https://www.notion.so/epiqueras-com-efbbecea0eeb4a6b95df41f6ab3b7993"
+theme = "dark"
+
+[[site.meta]]
+name = "title"
+content = "epiqueras.com"
+
+[[site.inject.head.link]]
+rel = "stylesheet"
+href = "dist/style.css"
+
+[[site.inject.head.script]]
+type = "text/javascript"
+src = "dist/libraries/p5.js"
+
+[[site.inject.head.script]]
+type = "text/javascript"
+src = "dist/libraries/p5.dom.js"
+
+[[site.inject.head.script]]
+type = "text/javascript"
+src = "dist/libraries/p5.sound.js"
+
+[[site.inject.head.script]]
+type = "text/javascript"
+src = "dist/build/script.js"
