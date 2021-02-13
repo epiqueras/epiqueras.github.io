@@ -5,6 +5,6 @@
     "@babel/preset-env": "^7.12.16"
   },
   "scripts": {
-    "build": "babel script.js --presets=@babel/preset-env --out-dir build && cd loconotion && docker-compose build && LOCONOTION_LOCAL_DIST=.. docker-compose run loconotion dist/loconotion.toml"
+    "build": "babel script.js --presets=@babel/preset-env --out-dir docs && cd loconotion && docker-compose build && LOCONOTION_LOCAL_DIST=.. docker-compose run loconotion dist/loconotion.toml"
   }
 }

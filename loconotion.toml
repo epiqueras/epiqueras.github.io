@@ -1,4 +1,4 @@
-name = "build"
+name = "docs"
 page = "https://www.notion.so/epiqueras-com-efbbecea0eeb4a6b95df41f6ab3b7993"
 theme = "dark"
 
@@ -24,4 +24,4 @@ src = "dist/libraries/p5.sound.js"
 
 [[site.inject.head.script]]
 type = "text/javascript"
-src = "dist/build/script.js"
+src = "dist/docs/script.js"
