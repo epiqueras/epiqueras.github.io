@@ -3,3 +3,31 @@ canvas {
   position: absolute;
   top: 0;
 }
+
+/* Inline List Expand Icon */
+.notion-selectable.notion-collection_view-block
+  > div:first-child
+  > .notion-selectable.notion-collection_view-block:first-child
+  > div:first-child
+  > div:last-child {
+  opacity: 1 !important;
+}
+.notion-selectable.notion-collection_view-block
+  > div:first-child
+  > .notion-selectable.notion-collection_view-block:first-child
+  > div:first-child
+  > div:last-child
+  > div:last-child {
+  display: none !important;
+}
+
+/* Inline List Rows */
+.notion-list-view a {
+  align-items: center !important;
+}
+.notion-list-view a > div:nth-child(2) {
+  min-width: 180px !important;
+}
+.notion-list-view a > div:nth-child(3) > div:first-child {
+  max-width: none !important;
+}

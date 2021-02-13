@@ -25,3 +25,9 @@ src = "dist/libraries/p5.sound.js"
 [[site.inject.head.script]]
 type = "text/javascript"
 src = "dist/docs/script.js"
+
+[pages.7702da49180b48a7a7ec575b4160ce7a]
+slug = "commands"
+
+[pages.4cbb08c5674945d0b4e507b1bc78ecc6]
+slug = "text-video-audio"

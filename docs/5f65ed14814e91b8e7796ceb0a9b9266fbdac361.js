@@ -264,6 +264,7 @@ function gotFile(file) {
 }
 
 function setup() {
+  if (window.location.pathname !== '/') return;
   var canvas = createCanvas(windowWidth, viewHeight);
   canvas.parent(document.querySelector('#notion-app > div > div > div > div.notion-scroller.vertical.horizontal > div:nth-child(1) > div:nth-child(1)'));
   canvas.drop(gotFile);

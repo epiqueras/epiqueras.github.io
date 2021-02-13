@@ -246,6 +246,7 @@ function gotFile(file) {
 }
 
 function setup() {
+  if (window.location.pathname !== '/') return
   const canvas = createCanvas(windowWidth, viewHeight)
   canvas.parent(
     document.querySelector(
