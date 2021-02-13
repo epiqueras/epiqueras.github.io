@@ -246,7 +246,11 @@ function gotFile(file) {
 }
 
 function setup() {
-  if (window.location.pathname !== '/') return
+  if (
+    window.location.pathname !== '/' &&
+    window.location.pathname !== '/index.html'
+  )
+    return
   const canvas = createCanvas(windowWidth, viewHeight)
   canvas.parent(
     document.querySelector(
