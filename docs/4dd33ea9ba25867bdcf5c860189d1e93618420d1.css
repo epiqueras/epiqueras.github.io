@@ -564,9 +564,7 @@ html.notion-front-page .notion-app-inner {
 /* Contenteditable placeholders.
 /* ==================================================================== */
 [contenteditable]:empty:before {
-    content: attr(placeholder);
-    display: block;
-    /* For Firefox */
+    content: attr(placeholder)
     }
 /* ==================================================================== */
 /* Intercom.
@@ -644,7 +642,7 @@ html.notion-front-page .notion-app-inner {
 /* ==================================================================== */
 /* Editor force select hack (see Editable.tsx).
 /* ==================================================================== */
-.edtior-force-select {
+.editor-force-select {
     user-select: auto !important;
     -webkit-user-select: auto !important;
     -moz-user-select: auto !important
@@ -1015,6 +1013,7 @@ table > tr {
     }
 .notion-light-theme .token.operator, .notion-light-theme .token.entity, .notion-light-theme .token.url, .notion-light-theme .language-css .token.string, .notion-light-theme .style .token.string {
     color: #9a6e3a;
+    /* This background color was intended by the author of this theme. */
     background: hsla(0, 0%, 100%, 0.5)
     }
 .notion-light-theme .token.atrule, .notion-light-theme .token.attr-value, .notion-light-theme .token.keyword {

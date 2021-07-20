@@ -5,6 +5,10 @@ canvas {
 }
 
 /* Upstream Fixes */
+::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+}
 @media only screen and (max-width: 960px) {
   .notion-scroller.notion-scroller
     > div:nth-child(2):not(.notion-page-content)
