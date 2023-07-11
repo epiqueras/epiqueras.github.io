@@ -1,11 +1,9 @@
 'use strict'
-const viewHeight = 275
-
 const dotSize = 2
 const maxConnectionLength = 20
 const cellWidth = 20
 const cellHeight = 20
-let input = 'hi'
+let input = '{hello}'
 let numOfDots = 0
 let time = 0
 let shape
@@ -87,9 +85,9 @@ class Shape {
 
   changeString(x, y, string = this.string) {
     this.isChanging = true
-    const fontSize = this.graphic.height - 32
+    const fontSize = this.graphic.width / sqrt(string.length + 10)
     this.x = x
-    this.y = y + fontSize / 3.5
+    this.y = y + fontSize / 3.8
     this.graphic.background(255)
     this.graphic.noStroke()
     this.graphic.fill(0)
@@ -106,7 +104,7 @@ class Shape {
   changeImage(image = this.image) {
     this.isChanging = true
     this.graphic.background(255)
-    image.resize(0, this.graphic.height - 16)
+    image.resize(0, this.graphic.height / 2)
     this.graphic.copy(
       image,
       0,
@@ -241,30 +239,20 @@ class Shape {
 
 function gotFile(file) {
   if (file.type === 'image') {
-    loadImage(file.data, (image) => shape.changeImage(image))
+    loadImage(file.data, image => shape.changeImage(image))
   }
 }
 
 function setup() {
-  if (
-    window.location.pathname !== '/' &&
-    window.location.pathname !== '/index.html'
-  )
-    return
-  const canvas = createCanvas(windowWidth, viewHeight)
-  canvas.parent(
-    document.querySelector(
-      '#notion-app > div > div > div > div.notion-scroller.vertical.horizontal > div:nth-child(1) > div:nth-child(1)'
-    )
-  )
+  const canvas = createCanvas(windowWidth, windowHeight)
   canvas.drop(gotFile)
   background(20)
-  numOfDots = Math.floor((windowWidth + viewHeight) / 2) * 6
+  numOfDots = max(windowWidth, windowHeight) * 6
   shape = new Shape(
     windowWidth,
-    viewHeight,
+    windowHeight,
     windowWidth / 2,
-    viewHeight / 2,
+    windowHeight / 2,
     input
   )
   input = ''
@@ -278,7 +266,7 @@ function draw() {
 
 function keyTyped() {
   if (keyCode === 13) {
-    shape.changeString(windowWidth / 2, viewHeight / 2, input)
+    shape.changeString(windowWidth / 2, windowHeight / 2, input)
     input = ''
   } else {
     input += key
@@ -286,7 +274,6 @@ function keyTyped() {
 }
 
 function windowResized() {
-  numOfDots = Math.floor((windowWidth + viewHeight) / 2) * 6
-  resizeCanvas(windowWidth, viewHeight)
-  shape.setUp(windowWidth, viewHeight, windowWidth / 2, viewHeight / 2)
+  resizeCanvas(windowWidth, windowHeight)
+  shape.setUp(windowWidth, windowHeight, windowWidth / 2, windowHeight / 2)
 }
